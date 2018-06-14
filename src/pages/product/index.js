@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Loading from '../../components/Loading';
 import { Container, Preview, Details } from './styles';
 import { Creators as ProductActions } from '../../store/ducks/product';
 
@@ -36,7 +37,15 @@ class Product extends Component {
     const { id } = this.props.match.params;
     this.props.getProductRequest(id);
   };
-  render() {
+
+  renderProduct = () => {
+    if (this.props.product.loading) {
+      return (
+        <Container loading>
+          <Loading />
+        </Container>
+      );
+    }
     return (
       <Container>
         <Preview>
@@ -52,6 +61,9 @@ class Product extends Component {
         </Details>
       </Container>
     );
+  };
+  render() {
+    return this.renderProduct();
   }
 }
 const mapStateToProps = state => ({

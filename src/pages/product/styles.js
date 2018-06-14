@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  justify-content: ${props => (props.loading ? 'center' : 'space-between')};
 `;
 
 export const Details = styled.div`
   display: flex;
   margin-left: 30px;
   flex-direction: column;
-  /* justify-content: ${props => (props.loading ? 'center' : 'space-between')}; */
 
   width: 50%;
 
