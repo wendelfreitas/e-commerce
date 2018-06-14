@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Loading from '../../components/Loading';
 import { Container, Preview, Details } from './styles';
 import { Creators as ProductActions } from '../../store/ducks/product';
+import { Creators as CartActions } from '../../store/ducks/cart';
 
 class Product extends Component {
   static propTypes = {
@@ -39,6 +40,7 @@ class Product extends Component {
   };
 
   renderProduct = () => {
+    console.log(this.props);
     if (this.props.product.loading) {
       return (
         <Container loading>
@@ -70,7 +72,8 @@ const mapStateToProps = state => ({
   product: state.product,
   loading: state.loading,
 });
-const mapDispatchToProps = dispatch => bindActionCreators(ProductActions, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ ...ProductActions, ...CartActions }, dispatch);
 
 export default connect(
   mapStateToProps,
