@@ -5,8 +5,8 @@ import { Container, Title, Cart } from './styles';
 
 const Header = props => (
   <Container>
-    <Title>Wen-commerce</Title>
-    <Cart>
+    <Title to="/">Wen-commerce</Title>
+    <Cart to="/cart">
       <small>Meu carrinho ({props.cart})</small>
     </Cart>
   </Container>

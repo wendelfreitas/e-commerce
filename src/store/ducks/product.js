@@ -4,7 +4,7 @@ export const Types = {
 };
 
 const INITIAL_STATE = {
-  data: [],
+  data: {},
   loading: false,
 };
 

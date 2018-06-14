@@ -25,8 +25,12 @@ export const Nav = styled.ul`
 
 export const Item = styled(Link)`
   text-decoration: none;
-
+  text-transform: uppercase;
   b {
+    &:hover {
+      font-weight: bold;
+    }
+    font-weight: normal;
     color: ${props => (props.selected ? 'white' : '#cccccc')};
     cursor: pointer;
   }

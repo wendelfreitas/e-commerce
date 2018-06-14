@@ -11,17 +11,18 @@ class Product extends Component {
   static propTypes = {
     match: PropTypes.shape({
       params: PropTypes.shape({
-        id: PropTypes.number,
+        id: PropTypes.string,
       }),
     }).isRequired,
     getProductRequest: PropTypes.func.isRequired,
+    CartAdd: PropTypes.func.isRequired,
     product: PropTypes.shape({
       data: PropTypes.shape({
         image: PropTypes.string,
         name: PropTypes.string,
         brand: PropTypes.string,
-        price: PropTypes.string,
-      }),
+        price: PropTypes.number,
+      }).isRequired,
       loading: PropTypes.bool.isRequired,
     }).isRequired,
   };
@@ -40,7 +41,6 @@ class Product extends Component {
   };
 
   renderProduct = () => {
-    console.log(this.props);
     if (this.props.product.loading) {
       return (
         <Container loading>
@@ -57,7 +57,7 @@ class Product extends Component {
           <strong>{this.props.product.data.name}</strong>
           <small>{this.props.product.data.brand}</small>
           <b>{`R$ ${this.props.product.data.price}`}</b>
-          <button>
+          <button onClick={() => this.props.CartAdd(this.props.product.data)}>
             <b>ADICIONAR AO CARRINHO</b>
           </button>
         </Details>
