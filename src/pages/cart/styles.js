@@ -69,6 +69,16 @@ export const ItemList = styled.table`
         height: 40px;
       }
     }
+
+    input[type='number'] {
+      border-radius: 3px;
+      border: 1px solid #b6b6b6;
+      height: 30px;
+      width: 50px;
+      text-align: center;
+
+      color: #b6b6b6;
+    }
   }
 
   tbody tr {
