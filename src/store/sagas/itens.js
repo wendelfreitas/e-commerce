@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
@@ -11,6 +12,8 @@ export function* getItens(data = null) {
     const response = yield call(api.get, endpoint);
     yield put(ItensActions.getItensSuccess(response.data));
   } catch (err) {
-    console.log(err);
+    toast.error('Erro na listagem dos produtos desta categoria !', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 }

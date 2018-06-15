@@ -6,7 +6,6 @@ import './config/reactotron';
 import Routes from './routes';
 import Header from './components/Header';
 import Menu from './components/Menu';
-import ErrorBox from './components/ErrorBox';
 import store from './store';
 import './styles/global';
 
@@ -14,7 +13,6 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Container>
-        <ErrorBox />
         <Header />
         <Menu />
         <Routes />

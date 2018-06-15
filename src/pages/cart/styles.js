@@ -19,10 +19,10 @@ export const Price = styled.div`
   }
 `;
 export const ItemList = styled.table`
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   width: 100%;
   border: 1px solid #f2f2f2;
   border-radius: 3px;
-
   thead th {
     color: #b3b3b3;
     font-weight: bold;

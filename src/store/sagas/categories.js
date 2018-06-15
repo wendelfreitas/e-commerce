@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 
@@ -10,6 +11,8 @@ export function* getCategories() {
 
     yield put(CategoriesActions.getCategoriesSuccess(response.data));
   } catch (err) {
-    console.log(err);
+    toast.error('Erro ao carregar menu !', {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 }

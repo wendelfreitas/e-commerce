@@ -17,6 +17,7 @@ export default function* rootSaga() {
     takeLatest(ItensTypes.GET_REQUEST, getItens),
     takeLatest(ProductTypes.GET_REQUEST, getProduct),
     CartTypes.CART_ADD,
+    CartTypes.CART_REMOVE,
     CartTypes.PRODUCT_EDIT,
   ]);
 }
